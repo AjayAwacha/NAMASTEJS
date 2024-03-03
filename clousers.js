@@ -131,3 +131,18 @@ addMemorization(10, 20);
 addMemorization(1, 1);
 addMemorization(10, 20);
 
+// Memorization
+function maintainSquers(){
+    const squers = [];
+    for(let i = 0; i <= 1000; i++) {
+        squers[i] = i * i;
+    }
+
+    return function(x) {
+        return squers[x];
+    }
+}
+
+const findSquere = maintainSquers();
+console.log(findSquere(20));
+

@@ -36,3 +36,4 @@ async function handlePromise() {
     console.log('End');
 }
 handlePromise();
+console.log('Remaining Synchronous code');

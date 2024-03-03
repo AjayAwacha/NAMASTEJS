@@ -5,6 +5,8 @@ const mapArr = arr.map((ele, i, arr) => {
 });
 // console.log(mapArr);
 
+// map method first argument is callback function and secound argument is value of this
+// that we want to attach to callback but callback function must type of Regulr Function not arraow Function
 // Filter
 const filterArr = arr.filter((ele, i, arr) => {
     return ele > 2;

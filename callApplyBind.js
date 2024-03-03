@@ -2,7 +2,7 @@
 // what is call
 const user = {name: 'Ajay'};
 function msg(age, profession) {
-    console.log(`Hello my name is ${this.name} and my age is ${age} and i am ${profession}`);
+    // console.log(`Hello my name is ${this.name} and my age is ${age} and i am ${profession}`);
 }
 msg.call(user, 26, 'Software Engineer');
 
@@ -17,10 +17,10 @@ bindFun(27, 'Farmer');
 //Question1
 const person = {name: 'Ajay'};
 function display(age, profession) {
-    console.log(`Hello my name is ${this.name} and my age is ${age} and i am ${profession}`);
+    // console.log(`Hello my name is ${this.name} and my age is ${age} and i am ${profession}`);
 }
-console.log(display.call(person, 26, 'SE'));
-console.log(display.bind(person, 26));
+// console.log(display.call(person, 26, 'SE'));
+// console.log(display.bind(person, 26));
 
 //Question2
 const age = 10;
@@ -75,6 +75,7 @@ animals.forEach((ele, index) => {
 function f() {
     console.log('function value ', this);
 }
+// if we pass value of this is null then this value inside function does not change
 const person3 = {
     g: f.bind(null)
 }

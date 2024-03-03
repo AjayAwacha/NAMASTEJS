@@ -44,6 +44,7 @@ const c = {key: 'value'};
 a[b] = 123;
 a[c] = 456;
 console.log(a[b]);
+console.log(a[c]);
 
 //Question6
 //what is JSON.stringfy and JSON.parse method
@@ -64,7 +65,7 @@ const user = {
 const admin = {
     admin: true,
     // user
-    ...user
+    // ...user
 }
 console.log(admin);
 
@@ -100,7 +101,7 @@ console.log(test1 === test2);
 
 //Question11
 let person = {
-    kjhg: 'Ajay Awachar'
+    king: 'Ajay Awachar'
 };
 const member = [person];
 person = null;  // not affect to array
@@ -145,3 +146,31 @@ obj7.key = 'edited';
 
 console.log(obj6);
 console.log(obj7);
+
+
+// create function to compare two object
+function compareObj(obj1, obj2) {
+    if (typeof obj1 !== 'object' || typeof obj2 !== 'object') throw TypeError('parameter must type of object');
+
+    if (Object.keys(obj1).length !== Object.keys(obj2).length) return false;
+
+    for(const key in obj1) {
+        if (!obj2.hasOwnProperty(key)) return false;
+
+        if (typeof obj1[key] === 'object' && typeof obj2[key] === 'object') {
+            if (!compareObj(obj1[key], obj2[key])) {
+                return false;
+            }
+        } else if (obj1[key] !== obj2[key]) {
+            return false
+        }
+    }
+    return true;
+}
+const obj11 = {
+    key1: 'value1'
+}
+const obj22 = {
+    key1: 'value2'
+}
+compareObj(obj11, obj22);

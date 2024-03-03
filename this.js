@@ -1,14 +1,14 @@
-
+// "use strict"
 //
-console.log(this);
+// console.log(this);
 
 function NormalFun() {
-    console.log(this); //this point owner of function and owner of function is window object
+    // console.log(this); //this point owner of function and owner of function is window object
 }
 NormalFun();
 
 const arrow = () => {
-    console.log(this);  //this point to lexical parent
+    // console.log(this);  //this point to lexical parent
 }
 arrow();
 
@@ -16,10 +16,10 @@ arrow();
 const obj = {
     myName: 'Ajay',
     print() {
-        console.log(this.myName);
+        // console.log(this.myName);
     },
     arrowTest: () => {
-        console.log(this.myName);
+        // console.log(this.myName);
     }
 }
 obj.print(); // owner of print is obj
@@ -30,10 +30,10 @@ const nestedObj = {
     nested: {
         nestedName: 'Sopan',
         print() {
-            console.log(this.myName);
+            // console.log(this.myName);
         },
         arrowTest: () => {
-            console.log(this.myName);
+            // console.log(this.myName);
         }
     }
 }
@@ -43,13 +43,13 @@ nestedObj.nested.arrowTest();
 const objLexical = {
     myName: 'Ajay',
     print() {
-        arrowTest = () => {
-            console.log(this.myName);
+        const arrowTest = () => {
+            // console.log(this.myName);
         }
         arrowTest();
     }
 }
-console.log('objLexical', objLexical.print());
+// console.log('objLexical', objLexical.print());
 
 const user = {
     myName: 'Ajay Awachar',
@@ -71,13 +71,13 @@ setTimeout(function() {
 //     console.log(this.length);
 // }
 
-// const object = {
+// const object2 = {
 //     length: 5,
 //     method(fun) {
 //         fun()
 //     }
 // }
-// console.log(object.method(print));
+// console.log(object2.method(print));
 
 //Question3
 var length = 6;

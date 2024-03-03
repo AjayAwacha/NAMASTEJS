@@ -1,7 +1,7 @@
 const selectOrder = new Promise((resolve, reject) => {
     setTimeout(() => {
-        // resolve('item is selected');
-        reject(new Error('First Promise reject'));
+        resolve('item is selected');
+        // reject(new Error('First Promise reject'));
      }, 5000)
 });
 
