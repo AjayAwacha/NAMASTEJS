@@ -1,7 +1,8 @@
+// 'use strict'
 const arr = ["a", "b", "c", "d"];
 
 // const reduceTest = [1, 2, 3, 4];
-// const addition = reduceTest.reduce((ele, accumulator) => accumulator + ele, 0);
+// const addition = reduceTest.reduce((acc, ele, index, myarr) => acc + ele, 0);
 // console.log(addition);
 
 // slice -> don't change original array
@@ -32,8 +33,10 @@ const arr = ["a", "b", "c", "d"];
 // join: convert array into string
 // console.log(arr.join('*'));
 // console.log(arr.join(' '));
+// console.log(arr);
 
 // at method
+// in NodeJs environment this method available in Node version more than 16
 // get element at specific index
 // console.log(arr[0]);
 // console.log(arr.at(0));
@@ -45,7 +48,7 @@ const arr = ["a", "b", "c", "d"];
 
 // loop array
 
-// const arr3 = [100, 200, -40, 400, -300, -40];
+const arr3 = [100, 200, -40, 400, -300, -40];
 // for(const [index, ele] of arr3.entries()) {
 //     if (ele > 0) {
 //         console.log(`movement ${index + 1} is credated and amount is ${ele}`);
@@ -59,13 +62,23 @@ const arr = ["a", "b", "c", "d"];
 //     console.log(`index of element is ${index} and element is ${arr3[index]}`);
 // }
 
-// arr3.forEach((ele, index, arr) => {
+// function myNormal() {
+//     console.log(this);
+// }
+// myNormal();
+
+const myObj = {
+    anyKey: 'anyValue'
+}
+
+// arr3.forEach(function (ele, index, arr) {
+//     console.log('Inside This Point to ', this);
 //     if (ele > 0) {
 //         console.log(`movement ${index + 1} is credated and amount is ${ele}`);
 //     } else {
 //         console.log(`movement ${index + 1} is dibated and amount is ${Math.abs(ele)}`);
 //     }
-// });
+// }, myObj);
 
 
 // // forEach with map
@@ -90,11 +103,12 @@ const mapExample = new Map([
 // return new array by performing operation on each array element
 // returned array length is same as original array length
 
-const arr4 = [10, 20, 30, 60, 30];
-// const newArr = arr4.map((ele, index, ar) => {
+// const arr4 = [10, 20, 30, 60, 30];
+// const newArr = arr4.map(function(ele, index, ar) {
 //     // console.log(ele, index, ...ar);
+//     // console.log(this);
 //     return ele * 2;
-// });
+// }, myObj);
 // console.log('---------------------------------');
 // console.log(arr4);
 // console.log(newArr);
@@ -111,7 +125,7 @@ const userNames = ['Ajay Sampatrao Awachar', 'Sopan Gulabrao Renge', 'Laxman Mar
 // we don't want to return any new array, we just want to iterate element 
 // that's why using for of loop
 for (const ele of userNames) {
-    const name = ele.toLocaleLowerCase().split(' ').map((ele) => ele.at(0)).join('');
+    // const name = ele.toLocaleLowerCase().split(' ').map((ele) => ele.at(0)).join('');
     // console.log(name);
 }
 
@@ -119,24 +133,34 @@ for (const ele of userNames) {
 // // return a new array contain only values who pass the test
 
 const filterArr = [200, 400, -500, 345, -700, 98];
-const creditedArray = filterArr.filter(ele => ele > 0);
-// console.log(creditedArray);
+// const creditedArray = filterArr.filter(function (ele, index, arr) {
+//     console.log(ele, index, arr);
+//     console.log('Value of This ', this);
+//     // return ele > 0
+// }.bind({myObj: 'MyObjValue'}), myObj);
+// console.log('creditedArray ', creditedArray);
+
+// once value of this bind with function it can not re bind
 
 // reduce method
 // reduce method iterate each array element and return only single value
-const returnedElement = filterArr.reduce((accumulator, ele) => accumulator + ele, 0);
-console.log(returnedElement);
+// const returnedElement = filterArr.reduce(function(accumulator, ele, index, arr) {
+//     console.log(accumulator, ele, index, arr);
+//     return accumulator + ele
+// }, 0);
+// console.log(returnedElement);
 
 //find method
 //return array element who pass the test firstly
 const transactions = [100, 10000, -700, 500, -1000];
-const firstWidthdrow = transactions.find( ele => {
+const firstWidthdrow = transactions.find( function(ele) {
+    console.log(this);
     if (ele < 0) {
         return ele
     }
-});
+}, myObj);
 // const firstWidthdrow = transactions.find( ele => ele < 0);
-console.log(firstWidthdrow);
+// console.log(firstWidthdrow);
 
 const accounts = [
     {
@@ -177,7 +201,7 @@ console.log(accopuntInfo);
 // const isAllMoreThanHundredPresent = accounts.every( ele => ele.balance > 1);
 // console.log(isAllMoreThanHundredPresent);
 
-const flatArray = [1, 2, [3, 4]];  // do not change original array
+// const flatArray = [1, 2, [3, 4]];  // do not change original array
 // console.log(flatArray.flat());
 // console.log(flatArray);
 // flat   [1, 2, [3, 4]] => [1, 2, 3, 4]
@@ -201,7 +225,7 @@ const noArr = [30, 4, 21, 100];
 // 1 means change element position
 // const res = noArr.sort((a, b) => a - b );  // Assending
 const res = noArr.sort((a, b) => b - a );  // Descding
-console.log(res);
+// console.log(res);
 
 // if we want to sort string array in descding order
 strArr.sort((a, b) => {

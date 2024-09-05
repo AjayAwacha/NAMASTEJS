@@ -19,21 +19,19 @@ const promise = new Promise((resolve, reject) => {
 
 // difference between handling promise using then and await
 async function handlePromise() {
-    console.log('Start');
+    console.log('Start');  // 1
 
-    // JE not wait to resolve promise
-    // promise.then((data) => console.log(data));
+    promise.then((data) => console.log('Then ', data)); // 3
 
-    // JE wait to resolve promise
     const promiseData1 = await promise;
-    console.log(promiseData1);
+    console.log('Await1 ', promiseData1);  // 4
 
-    console.log('Middle');
+    console.log('Middle');  // 5
 
     const promiseData2 = await promise;
-    console.log(promiseData2);
+    console.log('Await2 ', promiseData2);  // 6
 
-    console.log('End');
+    console.log('End');  // 7
 }
 handlePromise();
-console.log('Remaining Synchronous code');
+console.log('Remaining Synchronous code');  //2

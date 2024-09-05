@@ -9,7 +9,7 @@ const obj = {
 const logicalAnd = obj && obj.key && obj.key.jhg;
 console.log(logicalAnd);
 
-const optionalChain = obj?.key?.jhg;
+const optionalChain = obj?.key?.jhg?.ssds;
 console.log(optionalChain);
 
 // or operator return first truthy value otherwise return last value
@@ -35,11 +35,12 @@ console.log(true && 'true' || 78);
 // its work same like or but it conside only null/undefined as falsy value not 0/NaN/false/''
 // const val = 0;
 // const val = 10 * 'dff';
-const val = false;
+// const val = false;
 // const val = '';
 // const val = null;
 // const val = undefined;
-console.log(val ?? 10);
+// const val = 10 + (+'10');
+// console.log('Result ', val ?? 10);
 
 // argument parameter
 function outer(a) {

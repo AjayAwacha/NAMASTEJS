@@ -30,10 +30,10 @@ const nestedObj = {
     nested: {
         nestedName: 'Sopan',
         print() {
-            // console.log(this.myName);
+            console.log(this.myName);
         },
         arrowTest: () => {
-            // console.log(this.myName);
+            console.log(this.myName);
         }
     }
 }
@@ -61,7 +61,7 @@ const user = {
 // setTimeout(user.logMessage, 1000);
 // To Fix this
 setTimeout(function() {
-    user.logMessage()
+    // user.logMessage()
 }, 1000);
 
 

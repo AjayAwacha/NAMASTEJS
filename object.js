@@ -34,7 +34,7 @@ const obj4 = {
     fourth: 'fourth',
 }
 for(let key in obj4) {
-    console.log(key, obj4[key]);
+    console.log('Iteration', key, obj4[key]);
 }
 
 //Question5
@@ -65,7 +65,7 @@ const user = {
 const admin = {
     admin: true,
     // user
-    // ...user
+    ...user
 }
 console.log(admin);
 
@@ -99,11 +99,20 @@ const test2 = {key: 'val'};
 console.log(test1 == test2);
 console.log(test1 === test2);
 
+const test3 = test1;
+console.log(test1 == test3);
+console.log(test1 === test3);
+
+// we can not compare object in js using == or === because they are reference type
+// even both object property and value are same they give false they only check reference not value
+// two compare two object you have to define your custom function
+
 //Question11
 let person = {
     king: 'Ajay Awachar'
 };
 const member = [person];
+console.log('member ', member);
 person = null;  // not affect to array
 console.log(member);
 
@@ -123,6 +132,9 @@ const objTest1 = {
 const objTest2 = changeReference(objTest1);
 console.log(objTest1);
 console.log(objTest2);
+console.log(objTest1 == objTest2);
+console.log(objTest1 === objTest2);
+
 
 //Question13
 //shallow and deep copy
@@ -148,29 +160,75 @@ console.log(obj6);
 console.log(obj7);
 
 
+
 // create function to compare two object
 function compareObj(obj1, obj2) {
-    if (typeof obj1 !== 'object' || typeof obj2 !== 'object') throw TypeError('parameter must type of object');
+    if(typeof obj1 !== 'object' || typeof obj2 !== 'object') throw new Error('parameter must of type object');
 
     if (Object.keys(obj1).length !== Object.keys(obj2).length) return false;
 
     for(const key in obj1) {
-        if (!obj2.hasOwnProperty(key)) return false;
-
         if (typeof obj1[key] === 'object' && typeof obj2[key] === 'object') {
-            if (!compareObj(obj1[key], obj2[key])) {
-                return false;
-            }
+            if (!compareObj(obj1[key], obj2[key])) return false;
         } else if (obj1[key] !== obj2[key]) {
             return false
         }
     }
     return true;
 }
+
 const obj11 = {
     key1: 'value1'
 }
 const obj22 = {
-    key1: 'value2'
+    key1: 'value1'
 }
-compareObj(obj11, obj22);
+const resultggg = compareObj(obj11, obj22);
+console.log('resultggg  ', resultggg);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// create function to compare two object
+// function compareObj(obj1, obj2) {
+//     if (typeof obj1 !== 'object' || typeof obj2 !== 'object') throw TypeError('parameter must type of object');
+
+//     if (Object.keys(obj1).length !== Object.keys(obj2).length) return false;
+
+//     for(const key in obj1) {
+//         if (!obj2.hasOwnProperty(key)) return false;
+
+//         if (typeof obj1[key] === 'object' && typeof obj2[key] === 'object') {
+//             if (!compareObj(obj1[key], obj2[key])) {
+//                 return false;
+//             }
+//         } else if (obj1[key] !== obj2[key]) {
+//             return false
+//         }
+//     }
+//     return true;
+// }
+// const obj11 = {
+//     key1: 'value1'
+// }
+// const obj22 = {
+//     key1: 'value2'
+// }
+// compareObj(obj11, obj22);

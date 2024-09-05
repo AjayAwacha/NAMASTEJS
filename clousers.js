@@ -7,16 +7,16 @@ function clouserEx() {
         console.log(a, b, c);
     }
 }
-clouserEx()();
+// clouserEx()();
 
 //Question1
 let p = 0;
 (function() {
     if (p === 0) {
         let p = 1;
-        console.log(p);
+        // console.log(p);
     }
-    console.log(p);
+    // console.log(p);
 })();
 
 // Question2
@@ -26,7 +26,7 @@ addSix(21);
 
 function createBase(x) {
     return function(y) {
-        console.log(x + y);
+        // console.log(x + y);
     }
 }
 
@@ -39,9 +39,9 @@ function getIndexSquare(x) {
     return arr[x];
 }
 
-const startTime = new Date();
+const startTime = new Date().getTime();
 const data = getIndexSquare(500);
-const endTime = new Date();
+const endTime = new Date().getTime();
 console.log(data);
 const timetake = endTime - startTime;
 console.log('time take1 ', timetake);
@@ -58,9 +58,9 @@ function timeOptimization() {
 }
 
 const optimizedFun = timeOptimization();
-const startTime3 = new Date();
+const startTime3 = new Date().getTime();
 const data3 = optimizedFun(500);
-const endTime3 = new Date();
+const endTime3 = new Date().getTime();
 console.log(data3);
 const timetake3 = endTime3 - startTime3;
 console.log('time take3 ', timetake3);
@@ -69,12 +69,20 @@ console.log('time take3 ', timetake3);
 // use var and print 0 1 2
 function scope() {
     for(var i = 0; i < 3; i++) {
-        function inner(x) {
-            setTimeout(() => {
-                console.log(x);
-            }, 1000);
-        }
-        inner(i);
+        setTimeout(() => {
+            console.log(i);
+        }, 1000);
+
+        // function inner(x) {
+        //     setTimeout(() => {
+        //         console.log(x);
+        //     }, 1000);
+        // }
+        // inner(i);
+
+        // setTimeout((x) => {
+        //     console.log(x);
+        // }, 1000, i);
     }
 }
 scope();

@@ -14,6 +14,8 @@ const bindFun = msg.bind(user);
 bindFun(26, 'Software Engineer');
 bindFun(27, 'Farmer');
 
+// if we pass this as null than that function this value do not change means not set as null
+
 //Question1
 const person = {name: 'Ajay'};
 function display(age, profession) {
@@ -33,10 +35,10 @@ const person1 = {
 const person2 = {
     age: 30
 }
-console.log(person1.getAge.call(person2));
+// console.log(person1.getAge.call(person2));
 
 //Question3
-console.log(person1.getAge.bind(person2)());
+// console.log(person1.getAge.bind(person2)());
 
 //Question4
 var status = 1;
@@ -50,8 +52,9 @@ setTimeout(function() {
         }
     }
 
-    console.log(person.getStatus());
-    console.log(person.getStatus.call(this));
+    // console.log('Inside SetTimeout');
+    // console.log(person.getStatus());
+    // console.log(person.getStatus.call(this));
 }, 0);
 
 //Question5
@@ -62,7 +65,7 @@ const animals = [
 
 function printAnimals(i) {
     this.print = function() {
-        console.log(i + ' '+ this.name);
+        // console.log(i + ' '+ this.name);
     }
     this.print();
 }
@@ -77,16 +80,16 @@ function f() {
 }
 // if we pass value of this is null then this value inside function does not change
 const person3 = {
-    g: f.bind(null)
+    g: f.bind({key: 'valiue'})
 }
-person3.g();
+// person3.g();
 
 //Question
 function f2() {
     console.log(this.name);
 }
 f2 = f2.bind({name: 'first'}).bind({name: 'two'});  //once function bound with object can not rebpund
-f2();
+// f2();
 
 //Question
 function checkPassword(callback) {
@@ -101,7 +104,7 @@ const logIn = {
 }
 
 // checkPassword(logIn.sign);
-checkPassword(logIn.sign.bind(logIn));
+// checkPassword(logIn.sign.bind(logIn));
 
 //Question
 var old = 10;

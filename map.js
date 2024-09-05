@@ -6,21 +6,22 @@ const myMap = new Map();
 myMap.set(1, 1);
 myMap.set('2', '2');
 myMap.set(true, true);
+myMap.set('key', 'value');
 
 console.log(myMap);
 
 console.log(myMap.get(1));
-console.log(myMap.get('2'));
+console.log(myMap.get(2));
 
 console.log(myMap.size);
 
 console.log(myMap.has(1));
 console.log(myMap.has('1'));
 
-// console.log('forEach Elements')
-// myMap.forEach((val, key) => {
-//     console.log(val, key);
-// })
+console.log('forEach Elements')
+myMap.forEach((val, key, map) => {
+    console.log(val, key, map);
+})
 
 // console.log('using for of')
 // for(const [key, value] of myMap) {

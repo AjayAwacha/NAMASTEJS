@@ -11,17 +11,17 @@ const promise2 = new Promise((resolve, reject) => {
 });
 
 async function handlePromise() {
-    console.log('Start');
+    console.log('Start');  // 1
     // JE wait to resolve promise
     const promise1Data = await promise1;
-    console.log(promise1Data);
+    console.log(promise1Data);  // 3
 
-    console.log('Middle');
+    console.log('Middle');  // 4
 
     const promise2Data = await promise2;
-    console.log(promise2Data);
+    console.log(promise2Data);  // 5
 
-    console.log('End');
+    console.log('End');  // 6
 }
 handlePromise();
-console.log('Synchronous Code');
+console.log('Synchronous Code');  // 2

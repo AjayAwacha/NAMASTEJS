@@ -31,6 +31,7 @@ console.log(`${name[0].toUpperCase()}${name.slice(1)}`);
 
 const email = 'ajayawachar400@gmail.com';
 const newemail = '   AjayAwachar400@gmail.com   ';
+// toLowerCase, toUpperCase, trim not change original string
 console.log(newemail.toLowerCase());
 console.log(newemail.trim());
 

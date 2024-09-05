@@ -63,55 +63,55 @@
 
 // to solve this problem using primises
 // IMP: Promise start executing when it get declared
-console.log('Start');
-function importantAction() {
-    return new Promise((resolve, reject) => {
-        const status = false;
-        setTimeout(() => {
-            if (status) {
-                resolve('importantAction Success');
-            } else {
-                reject('importantAction Fail')
-            }
-        }, 1000);
-    });
-}
-function likeTheVideo() {
-    return new Promise((resolve, reject) => {
-        const status = false;
-        setTimeout(() => {
-            if (status) {
-                resolve('likeTheVideo Success');
-            } else {
-                reject('likeTheVideo Fail')
-            }
-        }, 2000);
-    });
-}
-function subscribeTheVodeo() {
-    return new Promise((resolve, reject) => {
-        const status = false;
-        setTimeout(() => {
-            if (status) {
-                resolve('subscribeTheVodeo Success');
-            } else {
-                reject('subscribeTheVodeo Fail')
-            }
-        }, 3000);
-    });
-}
-function shareTheVodeo() {
-    return new Promise((resolve, reject) => {
-        const status = false;
-        setTimeout(() => {
-            if (status) {
-                resolve('shareTheVodeo Success');
-            } else {
-                reject('shareTheVodeo Fail')
-            }
-        }, 500);
-    });
-}
+// console.log('Start');
+// function importantAction() {
+//     return new Promise((resolve, reject) => {
+//         const status = false;
+//         setTimeout(() => {
+//             if (status) {
+//                 resolve('importantAction Success');
+//             } else {
+//                 reject('importantAction Fail')
+//             }
+//         }, 1000);
+//     });
+// }
+// function likeTheVideo() {
+//     return new Promise((resolve, reject) => {
+//         const status = false;
+//         setTimeout(() => {
+//             if (status) {
+//                 resolve('likeTheVideo Success');
+//             } else {
+//                 reject('likeTheVideo Fail')
+//             }
+//         }, 2000);
+//     });
+// }
+// function subscribeTheVodeo() {
+//     return new Promise((resolve, reject) => {
+//         const status = false;
+//         setTimeout(() => {
+//             if (status) {
+//                 resolve('subscribeTheVodeo Success');
+//             } else {
+//                 reject('subscribeTheVodeo Fail')
+//             }
+//         }, 3000);
+//     });
+// }
+// function shareTheVodeo() {
+//     return new Promise((resolve, reject) => {
+//         const status = false;
+//         setTimeout(() => {
+//             if (status) {
+//                 resolve('shareTheVodeo Success');
+//             } else {
+//                 reject('shareTheVodeo Fail')
+//             }
+//         }, 500);
+//     });
+// }
 // importantAction().then((msg) => {
 //     console.log(msg);
 //     return likeTheVideo();
@@ -127,7 +127,7 @@ function shareTheVodeo() {
 //     console.log('err ', err);
 // })
 
-console.log('End');
+// console.log('End');
 
 // static methods in Promise
 

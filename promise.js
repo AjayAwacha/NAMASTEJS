@@ -1,24 +1,25 @@
 const selectOrder = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve('item is selected');
-        // reject(new Error('First Promise reject'));
-     }, 5000)
+        // resolve('item is selected');
+        reject(new Error('First Promise reject'));
+     }, 1000)
 });
 
 const createOrder = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve('Order is created successfully')
-     }, 5000)
+     }, 2000)
 });
 
 const makePayment = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve('makePayment')
-     }, 5000)
+     }, 3000)
 });
 
 selectOrder
 .then((data) => {
+    console.log(data);
     return data;
 })
 .catch((err) => {       // because of this catch below promises are execute event if there
